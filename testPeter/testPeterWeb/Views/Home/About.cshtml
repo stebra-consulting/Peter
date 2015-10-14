@@ -1,7 +1,18 @@
-﻿@{
+﻿@using testPeterWeb.Models
+@{
     ViewBag.Title = "About";
 }
-<h2>@ViewBag.Title.</h2>
+<h2>@ViewBag.Title</h2>
 <h3>@ViewBag.Message</h3>
 
-<p>@ViewBag.MyList</p>
+@foreach (var item in (List<News>)ViewData["MyNews"])
+{
+        <div class="col-md-6" style="float:none">
+            <h2>
+                @item.Title
+            </h2>
+            <b>
+                @Html.Raw(item.Body)
+            </b>
+        </div>
+}

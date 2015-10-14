@@ -6,6 +6,7 @@ using System.Net;
 using System.Security;
 using System.Web;
 using System.Web.Mvc;
+using testPeterWeb.Models;
 
 namespace testPeterWeb.Controllers
 {
@@ -69,10 +70,12 @@ namespace testPeterWeb.Controllers
 
                     clientContext.ExecuteQuery();
 
+                    List<News> newsList = new List<News>();
                     foreach (var item in collListItem)
                     {
-                        ViewBag.MyList += item["Title"] + ". ";
+                        newsList.Add(new News() { Title = item["Title"].ToString(), Body = item["Body"].ToString(), Article = item["Article"].ToString() });
                     }
+                    ViewData["MyNews"] = newsList;
 
                     ViewBag.webTitle = web.Title;
                 }
