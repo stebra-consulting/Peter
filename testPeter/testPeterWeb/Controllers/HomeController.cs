@@ -73,7 +73,11 @@ namespace testPeterWeb.Controllers
                     List<News> newsList = new List<News>();
                     foreach (var item in collListItem)
                     {
-                        newsList.Add(new News() { Title = item["Title"].ToString(), Body = item["Body"].ToString(), Article = item["Article"].ToString() });
+                        newsList.Add(new News() {
+                            Title = item["Title"].ToString(),
+                            Body = item["Body"].ToString(),
+                            Article = item["Article"].ToString()
+                        });
                     }
                     ViewData["MyNews"] = newsList;
 
@@ -88,6 +92,15 @@ namespace testPeterWeb.Controllers
         {
             ViewBag.Message = "Your contact page.";
 
+            return View();
+        }
+
+        [HttpGet]
+        public ActionResult Item(string title)
+        {
+
+            string thisId = title;
+            ViewBag.id = thisId;
             return View();
         }
     }

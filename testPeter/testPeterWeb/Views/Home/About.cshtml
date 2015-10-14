@@ -14,5 +14,6 @@
             <b>
                 @Html.Raw(item.Body)
             </b>
+            <p>@Html.ActionLink("Link to Article", "Item", new { title = @item.Title })</p>
         </div>
 }
