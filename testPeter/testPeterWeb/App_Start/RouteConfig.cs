@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using testPeterWeb.App_Start;
 
 namespace testPeterWeb
 {
@@ -14,9 +15,15 @@ namespace testPeterWeb
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
-                name:  "News",
-                url:  "Home/News/{title}",
-                defaults: new { controller = "Home", action = "About", title = "" }
+                name: "Newsitem",
+                url: "Home/Read/{title}",
+                defaults: new { controller = "Home", action = "Item", title = "" }
+                );
+
+            routes.MapRoute(
+                name: "News",
+                url: "Home/News",
+                defaults: new { controller = "Home", action = "About" }
                 );
 
             routes.MapRoute(

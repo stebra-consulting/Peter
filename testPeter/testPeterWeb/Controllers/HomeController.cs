@@ -7,6 +7,7 @@ using System.Security;
 using System.Text;
 using System.Web;
 using System.Web.Mvc;
+using testPeterWeb.App_Start;
 using testPeterWeb.Models;
 
 namespace testPeterWeb.Controllers
@@ -101,8 +102,10 @@ namespace testPeterWeb.Controllers
         [HttpGet]
         public ActionResult Item(string title)
         {
+            string realTitle = URLFriendly.GetURLFriendly(title);
+            string urlTitle = (title ?? "").Trim().ToLower();
 
-            string itemTitle = URLFriendly(title);
+            //string itemTitle = URLFriendly(title);
             //ListItemCollection allListItems = listObject.ListItemsGlobal;
             List<News> currentNews = NewsList.AllNews;
 
@@ -111,73 +114,19 @@ namespace testPeterWeb.Controllers
             foreach (var item in currentNews)
             {
                 string currentTitle = item.Title;
-                if (currentTitle == itemTitle)
+                if (currentTitle == item.Title)
                 {
                     currentNewsEntry +=
                         "<h1>" + item.Title + "</h1>" +
                         "<h2>" + item.Body + "</h2>" +
-                        "<p>" + item.Article + "</p>";   
-
+                        "<p>" + item.Article + "</p>";
+                    item.Title = realTitle;
                     break;
                 }
             }
 
-
             ViewBag.NewsEntry = currentNewsEntry;
             return View();
-        }
-
-        public static string URLFriendly(string title)
-        {
-            if (title == null) return "";
-
-            const int maxlen = 80;
-            int len = title.Length;
-            bool prevdash = false;
-            var sb = new StringBuilder(len);
-            char c;
-
-            for (int i = 0; i < len; i++)
-            {
-                c = title[i];
-                if ((c >= 'a' && c <= 'z') || (c >= '0' && c <= '9'))
-                {
-                    sb.Append(c);
-                    prevdash = false;
-                }
-                else if (c >= 'A' && c <= 'Z')
-                {
-                    // tricky way to convert to lowercase
-                    sb.Append((char)(c | 32));
-                    prevdash = false;
-                }
-                else if (c == ' ' || c == ',' || c == '.' || c == '/' ||
-                    c == '\\' || c == '-' || c == '_' || c == '=')
-                {
-                    if (!prevdash && sb.Length > 0)
-                    {
-                        sb.Append('-');
-                        prevdash = true;
-                    }
-                }
-                else if ((int)c >= 128)
-                {
-                    int prevlen = sb.Length;
-                    sb.Append(RemapInternationalCharToAscii(c));
-                    if (prevlen != sb.Length) prevdash = false;
-                }
-                if (i == maxlen) break;
-            }
-
-            if (prevdash)
-                return sb.ToString().Substring(0, sb.Length - 1);
-            else
-                return sb.ToString();
-        }
-
-        private static object RemapInternationalCharToAscii(char c)
-        {
-            throw new NotImplementedException();
         }
     }
 }

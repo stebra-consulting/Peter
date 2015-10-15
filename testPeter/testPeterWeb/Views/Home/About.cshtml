@@ -1,4 +1,5 @@
 ﻿@using testPeterWeb.Models
+@using testPeterWeb.App_Start
 @{
     ViewBag.Title = "About";
 }
@@ -14,6 +15,6 @@
             <b>
                 @Html.Raw(item.Body)
             </b>
-            <p>@Html.ActionLink("Link to Article", "Item", new { title = @item.Title })</p>
+            <p>@Html.ActionLink("Link to Article", "Item", new { title = URLFriendly.GetURLFriendly(item.Title) })</p>
         </div>
 }
