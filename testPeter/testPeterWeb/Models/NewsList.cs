@@ -7,6 +7,6 @@ namespace testPeterWeb.Models
 {
     public class NewsList
     {
-        public List<News> AllNews { get; set; }
+        public static List<News> AllNews { get; set; }
     }
 }

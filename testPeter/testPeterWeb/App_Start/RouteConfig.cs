@@ -14,9 +14,9 @@ namespace testPeterWeb
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
-                name:  "test",
-                url:  "Home/Test",
-                defaults: new { controller = "Home", action = "Contact" }
+                name:  "News",
+                url:  "Home/News/{title}",
+                defaults: new { controller = "Home", action = "About", title = "" }
                 );
 
             routes.MapRoute(
