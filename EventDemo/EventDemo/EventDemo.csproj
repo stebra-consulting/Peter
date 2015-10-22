@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{857A0328-168E-4870-8AD1-C8A9850EC09B}</ProjectGuid>
+    <ProjectGuid>{CC8D6C2A-2776-45EA-967A-210C5CA3DAF0}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>testPeter</RootNamespace>
-    <AssemblyName>testPeter</AssemblyName>
+    <RootNamespace>EventDemo</RootNamespace>
+    <AssemblyName>EventDemo</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <TargetOfficeVersion>16.1</TargetOfficeVersion>
     <FileAlignment>512</FileAlignment>
@@ -17,12 +17,11 @@
     <MinimumOfficeToolsVersion>12.2</MinimumOfficeToolsVersion>
     <IncludeAssemblyInPackage>False</IncludeAssemblyInPackage>
     <ProjectMode>SharePointApp</ProjectMode>
-    <AppFeaturePartId>{d4138c34-b9e9-4091-8b93-a80436f2dda8}</AppFeaturePartId>
-    <WspPartId>{62fe9020-12db-4216-8ca4-f68f1d92846f}</WspPartId>
-    <WorkflowPartId>{a0b12c8b-38a2-490c-81e0-d3cc7e25e082}</WorkflowPartId>
-    <CspkgPartId>{86a56da7-5d7b-4458-91af-fa9a58218f55}</CspkgPartId>
-    <SqlPackagePartId>{ab65f0f7-3a92-4ded-af68-97e993ee85b7}</SqlPackagePartId>
-    <ActivePublishProfile>MVCtestAzure - Web Deploy</ActivePublishProfile>
+    <AppFeaturePartId>{a8e4a447-73ad-450b-8f29-1ab5e872de0b}</AppFeaturePartId>
+    <WspPartId>{93b16b1e-769b-4f73-ae2f-d015c6b7f83d}</WspPartId>
+    <WorkflowPartId>{f9da822f-e6ea-412d-bb23-bf99986fc4aa}</WorkflowPartId>
+    <CspkgPartId>{3fc6e1d3-ce8b-48c9-abd8-de0d637321f4}</CspkgPartId>
+    <SqlPackagePartId>{06695d1a-1c58-4604-93d6-f69912f35836}</SqlPackagePartId>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -53,7 +52,6 @@
     <Content Include="Package\Package.Template.xml">
       <DependentUpon>Package.package</DependentUpon>
     </Content>
-    <Content Include="RemoteEventReceiver1\Elements.xml" />
   </ItemGroup>
   <ItemGroup>
     <AppManifestFile Include="AppManifest.xml">
@@ -61,58 +59,27 @@
     </AppManifestFile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\testPeterWeb\testPeterWeb.csproj">
-      <Project>{8E56660E-439D-411C-9D61-ECCFDF3D0DF4}</Project>
-      <Name>testPeterWeb</Name>
+    <ProjectReference Include="..\EventDemoWeb\EventDemoWeb.csproj">
+      <Project>{C8C73260-7516-497F-82BF-9E9669FEB698}</Project>
+      <Name>EventDemoWeb</Name>
       <Private>True</Private>
       <RoleType>Web</RoleType>
       <OutputItemType>SharePointWebProjectOutput</OutputItemType>
-      <RoleName>testPeterWeb</RoleName>
+      <RoleName>EventDemoWeb</RoleName>
       <ReferenceOutputAssembly>False</ReferenceOutputAssembly>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
     <None Include="Features\Feature1\Feature1.feature">
-      <FeatureId>{3557dc56-89fa-4ba6-81ad-508c01fdd5d8}</FeatureId>
+      <FeatureId>{625cdaf7-f4a8-4180-b654-d73744eef5c8}</FeatureId>
     </None>
-    <None Include="packages.config" />
     <None Include="Package\Package.package">
-      <PackageId>{0492bc21-a108-4122-9aee-813c951d8c64}</PackageId>
+      <PackageId>{b3fb9e91-9067-4ec1-aab3-b98f8981609a}</PackageId>
     </None>
-    <None Include="RemoteEventReceiver1\SharePointProjectItem.spdata">
-      <SharePointProjectItemId>{16bc4e6c-5bea-4770-9fc5-f70eb77401a5}</SharePointProjectItemId>
+    <None Include="Receiver1\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{dfc0af5f-ff87-41c1-8bec-a8f7caf95498}</SharePointProjectItemId>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

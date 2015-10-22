@@ -102,8 +102,8 @@ namespace testPeterWeb.Controllers
         [HttpGet]
         public ActionResult Item(string title)
         {
-            string realTitle = URLFriendly.GetURLFriendly(title);
-            string urlTitle = (title ?? "").Trim().ToLower();
+            //string realTitle = URLFriendly.GetURLFriendly(title);
+            //string urlTitle = (title ?? "").Trim().ToLower();
 
             //string itemTitle = URLFriendly(title);
             //ListItemCollection allListItems = listObject.ListItemsGlobal;
@@ -120,7 +120,7 @@ namespace testPeterWeb.Controllers
                         "<h1>" + item.Title + "</h1>" +
                         "<h2>" + item.Body + "</h2>" +
                         "<p>" + item.Article + "</p>";
-                    item.Title = realTitle;
+                    //item.Title = realTitle;
                     break;
                 }
             }

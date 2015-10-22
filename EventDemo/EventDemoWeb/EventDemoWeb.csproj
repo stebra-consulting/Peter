@@ -9,12 +9,12 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{8E56660E-439D-411C-9D61-ECCFDF3D0DF4}</ProjectGuid>
+    <ProjectGuid>{C8C73260-7516-497F-82BF-9E9669FEB698}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>testPeterWeb</RootNamespace>
-    <AssemblyName>testPeterWeb</AssemblyName>
+    <RootNamespace>EventDemoWeb</RootNamespace>
+    <AssemblyName>EventDemoWeb</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
@@ -180,17 +180,15 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="App_Start\URLFriendly.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Filters\SharePointContextFilterAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\News.cs" />
-    <Compile Include="Models\NewsList.cs" />
+    <Compile Include="Models\RERUtility.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\RemoteEventReceiver1.svc.cs">
-      <DependentUpon>RemoteEventReceiver1.svc</DependentUpon>
+    <Compile Include="Services\Receiver1.svc.cs">
+      <DependentUpon>Receiver1.svc</DependentUpon>
     </Compile>
     <Compile Include="SharePointContext.cs" />
     <Compile Include="TokenHelper.cs" />
@@ -204,8 +202,6 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <None Include="Properties\PublishProfiles\MVCtestAzure - FTP.pubxml" />
-    <None Include="Properties\PublishProfiles\MVCtestAzure - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -219,7 +215,7 @@
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\spcontext.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Services\RemoteEventReceiver1.svc" />
+    <Content Include="Services\Receiver1.svc" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -234,11 +230,9 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Home\Item.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\News\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -247,9 +241,6 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -267,9 +258,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>16037</DevelopmentServerPort>
+          <DevelopmentServerPort>13222</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:16037/</IISUrl>
+          <IISUrl>http://localhost:13222/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

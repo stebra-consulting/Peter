@@ -15,6 +15,7 @@
             <b>
                 @Html.Raw(item.Body)
             </b>
-            <p>@Html.ActionLink("Link to Article", "Item", new { title = URLFriendly.GetURLFriendly(item.Title) })</p>
+            <p>@Html.Raw(item.Article)</p>
+            <p>@Html.ActionLink("Link to Article", "Item", new { title = item.Title })</p>
         </div>
 }
