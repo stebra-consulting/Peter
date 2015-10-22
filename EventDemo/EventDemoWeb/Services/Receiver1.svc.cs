@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Microsoft.SharePoint.Client;
 using Microsoft.SharePoint.Client.EventReceivers;
+using EventDemoWeb.Models;
 
 namespace EventDemoWeb.Services
 {
@@ -42,6 +43,11 @@ namespace EventDemoWeb.Services
                 {
                     clientContext.Load(clientContext.Web);
                     clientContext.ExecuteQuery();
+
+                    News news = new News(
+                        properties.ItemEventProperties.AfterProperties["Title"].ToString(), 
+                        properties.ItemEventProperties.AfterProperties["Body"].ToString(), 
+                        properties.ItemEventProperties.AfterProperties["Article"].ToString());
                 }
             }
         }
