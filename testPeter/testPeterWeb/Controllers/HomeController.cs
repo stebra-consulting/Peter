@@ -22,7 +22,7 @@ namespace testPeterWeb.Controllers
                 {
                     SecureString passWord = new SecureString();
 
-                    foreach (char c in "CTvsTonDD2".ToCharArray()) passWord.AppendChar(c);
+                    foreach (char c in "writePassWordHere".ToCharArray()) passWord.AppendChar(c);
 
                     clientContext.Credentials = new SharePointOnlineCredentials("peter.ayvazian@stebra.se", passWord);
 
